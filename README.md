@@ -6,4 +6,4 @@ An offline calculator for calculating extra salary paid
 |Database Naming Convention||
 |:-----------|:-------------|
 |Table    |UpperCamelCase(s)|
-|Column    |sneak_case      |
+|Column    |snake_case      |
