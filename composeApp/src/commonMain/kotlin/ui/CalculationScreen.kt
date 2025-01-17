@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
@@ -19,11 +20,16 @@ import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import ui.components.DateRow
+import ui.components.MealRow
 import ui.components.OcMealText
 import ui.components.OcTimeText
+import ui.components.TimeRow
 import ui.components.ocDateText
 import ui.pickers.OcDatePicker
 import ui.pickers.OcIconButton
@@ -38,117 +44,70 @@ fun CalculationScreen(calculationViewModel: CalculationViewModel) {
     val checkInTimePickerState = rememberTimePickerState()
     val checkOutTimePickerState = rememberTimePickerState()
 
-    Row {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Column() {
+        //TODO: Fix this bloody padding thing
 
-            val textModifier = Modifier.padding(12.dp)
+        val modifier = Modifier
 
-            //DatePicker starts
-            ocDateText(
-                selectedDate = calculationUiState.ocDate,
-                modifier = textModifier
-            )
-
-            // 上班時間
-            OcTimeText(
-                title = "上班時間：",
-                hourAndMinute = HourAndMinute(hour = calculationUiState.checkInTime.hour, minute = calculationUiState.checkInTime.minute),
-                modifier = textModifier
-            )
-            // 下班時間
-            OcTimeText(
-                title = "下班時間：",
-                hourAndMinute = HourAndMinute(hour = calculationUiState.checkOutTime.hour, minute = calculationUiState.checkOutTime.minute),
-                modifier = textModifier
-            )
-
-            //餐數
-            OcMealText(
-                mealCount = calculationUiState.mealCount,
-                modifier = textModifier
-            )
-
-            Row(horizontalArrangement = Arrangement.SpaceEvenly) {
-                Text(
-                    text = "Left"
-                )
-                //            Spacer(modifier = Modifier.width(200.dp))
-                Text(
-                    text = "Right"
-                )
-            }
-        }
-
-//        Icon column
-        Column {
-            //Date Picker
-            OcIconButton(Icons.Default.Edit,
-                onClickAction = {calculationViewModel.showDatePicker()},
-                contentDescription = "//--Place Holder--//"
-            ){
-                OcDatePicker(
-                    showDatePicker = calculationUiState.showDatePicker,
-                    cancelAction = {calculationViewModel.closeDatePicker()},
-                    confirmAction = {calculationViewModel.selectDate(datePickerState = datePickerState)
-                        calculationViewModel.closeDatePicker()},
-                    dismissAction = {calculationViewModel.closeDatePicker()},
-                    datePickerState = datePickerState)
-            }
-
-            //Check in Time Picker
-            OcIconButton(Icons.Default.Edit,
-                onClickAction = {calculationViewModel.showCheckInTimePicker()},
-                contentDescription = "//--Place Holder--//"
-            ){
-                OcTimePicker(
-                    showTimePicker = calculationUiState.showCheckInTimePicker,
-                    cancelAction = {calculationViewModel.closeTimePicker()},
-                    confirmAction = {calculationViewModel.selectCheckInTime(timePickerState = checkInTimePickerState)
-                        calculationViewModel.closeTimePicker()},
-                    dismissAction = {calculationViewModel.closeTimePicker()},
-                    timePickerState = checkInTimePickerState
-                )
-            }
-
-            //Check out Time Picker
-            OcIconButton(Icons.Default.Edit,
-                onClickAction = {calculationViewModel.showCheckOutTimePicker()},
-                contentDescription = "//--Place Holder--//"
-            ){
-                OcTimePicker(
-                    showTimePicker = calculationUiState.showCheckOutTimePicker,
-                    cancelAction = {calculationViewModel.closeTimePicker()},
-                    confirmAction = {calculationViewModel.selectCheckOutTime(timePickerState = checkOutTimePickerState)
-                        calculationViewModel.closeTimePicker()},
-                    dismissAction = {calculationViewModel.closeTimePicker()},
-                    timePickerState = checkOutTimePickerState
-                )
-            }
-
-            //Meal Picker
-            Box {
-                IconButton(onClick = { calculationViewModel.showMealPicker() }) {
-                    Icon(Icons.Rounded.Edit,
-                        contentDescription = "//Place Holder//")
-                }
-                DropdownMenu(
-                    onDismissRequest = { calculationViewModel.closeMealPicker()},
-                    expanded = calculationUiState.showMealPicker,
-                    content = {
-                        (0..2).forEach {
-                            DropdownMenuItem(
-                                text = { Text(text = "$it") },
-                                onClick = {
-                                    calculationViewModel.selectMealCount(it.toByte())
-                                    calculationViewModel.closeMealPicker()
-                                }
-                            )
-                        }
-                    }
-                )
-            }
-
-        }
+        DateRow(
+            selectedDate = calculationUiState.ocDate,
+            onClickAction = { calculationViewModel.showDatePicker() },
+            showDatePicker = calculationUiState.showDatePicker,
+            cancelAction = { calculationViewModel.closeDatePicker() },
+            confirmAction = {
+                calculationViewModel.selectDate(datePickerState = datePickerState)
+                calculationViewModel.closeDatePicker()
+            },
+            dismissAction = { calculationViewModel.closeDatePicker() },
+            datePickerState = datePickerState,
+            contentDescription = "//-- Place Holder --//",
+            modifier = modifier
+        )
+//        上班時間
+        TimeRow(
+            hour = calculationUiState.checkInTime.hour,
+            minute = calculationUiState.checkInTime.minute,
+            title = "上班時間：",
+            onClickAction = { calculationViewModel.showCheckInTimePicker() },
+            showTimePicker = calculationUiState.showCheckInTimePicker,
+            cancelAction = { calculationViewModel.closeTimePicker() },
+            confirmAction = {
+                calculationViewModel.selectCheckInTime(timePickerState = checkInTimePickerState)
+                calculationViewModel.closeTimePicker()
+            },
+            dismissAction = { calculationViewModel.closeTimePicker() },
+            timePickerState = checkInTimePickerState,
+            contentDescription = "//--Place Holder--//",
+            modifier = modifier
+        )
+//        下班時間
+        TimeRow(
+            hour = calculationUiState.checkOutTime.hour,
+            minute = calculationUiState.checkOutTime.minute,
+            title = "下班時間：",
+            onClickAction = { calculationViewModel.showCheckOutTimePicker() },
+            showTimePicker = calculationUiState.showCheckOutTimePicker,
+            cancelAction = { calculationViewModel.closeTimePicker() },
+            confirmAction = {
+                calculationViewModel.selectCheckOutTime(timePickerState = checkOutTimePickerState)
+                calculationViewModel.closeTimePicker()
+            },
+            dismissAction = { calculationViewModel.closeTimePicker() },
+            timePickerState = checkOutTimePickerState,
+            contentDescription = "//--Place Holder--//",
+            modifier = modifier
+        )
+        MealRow(
+            iconClickedAction = { calculationViewModel.showMealPicker() },
+            menuItemClickedAction = {
+                //IDK why it worked but it worked
+                calculationViewModel.selectMealCount(it)
+                calculationViewModel.closeMealPicker()
+            },
+            onDismissRequest = { calculationViewModel.closeMealPicker() },
+            showMealPicker = calculationUiState.showMealPicker,
+            mealCount = calculationUiState.mealCount,
+            modifier = modifier
+        )
     }
 }
-

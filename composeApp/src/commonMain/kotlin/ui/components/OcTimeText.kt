@@ -10,7 +10,7 @@ import ui.HourAndMinute
 fun OcTimeText(
     title: String,
     hourAndMinute: HourAndMinute,
-    modifier: Modifier = Modifier
+    modifier: Modifier
 ) {
 
     var hourStr = hourAndMinute.hour.toString()

@@ -13,7 +13,7 @@ import overtime_calculator.composeapp.generated.resources.selected_date_is
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ocDateText(selectedDate: LocalDate,
-               modifier: Modifier = Modifier) {
+               modifier: Modifier) {
 
     //Main text content
     Text(

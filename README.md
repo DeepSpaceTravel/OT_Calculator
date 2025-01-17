@@ -5,8 +5,8 @@ An offline calculator for calculating extra salary paid
 |Libraries Used||
 |:-------|:--------|
 |Nav    |Voyager   |
-|Network|Ktor      |
 |Storage|SQLDelight|
+|Network|Ktor      |
 |||
 
 ## Database Naming Convention

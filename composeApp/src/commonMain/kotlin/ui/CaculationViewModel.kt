@@ -36,17 +36,6 @@ class CalculationViewModel: ViewModel (){
         _uiState.update { it.copy(showDatePicker = false) }
     }
 
-    @OptIn(ExperimentalMaterial3Api::class)
-    fun saveDailyInfo(datePickerState: DatePickerState,
-                      timePickerState: TimePickerState){
-//        _uiState.value.ocDate.add(Instant
-//            .fromEpochMilliseconds(datePickerState.selectedDateMillis!!)
-//            .toLocalDateTime(TimeZone.currentSystemDefault())
-//            .date)
-//        println(_uiState.value.ocDate.size)
-    }
-
-
     fun showCheckInTimePicker() {
         _uiState.update { it.copy(showCheckInTimePicker = true) }
     }
@@ -72,7 +61,7 @@ class CalculationViewModel: ViewModel (){
     }
 
     fun selectMealCount(mealCount: Byte) {
-        _uiState.update { it.copy(mealCount = mealCount) }
+        _uiState.update { it.copy(mealCount = mealCount)}
     }
 
     fun closeMealPicker() {
