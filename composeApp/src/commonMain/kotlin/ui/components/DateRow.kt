@@ -37,8 +37,7 @@ fun DateRow(
         OcIconButton(
             Icons.Default.Edit,
             onClickAction = onClickAction,
-            contentDescription = contentDescription,
-            modifier = modifier
+            contentDescription = contentDescription
         ) {
             OcDatePicker(
                 showDatePicker = showDatePicker,

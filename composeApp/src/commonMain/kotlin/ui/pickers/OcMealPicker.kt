@@ -15,11 +15,10 @@ import androidx.compose.ui.Modifier
     iconClickedAction: () -> Unit,
     menuItemClickedAction: (Byte) -> Unit,
     onDismissRequest: () -> Unit,
-    showMealPicker: Boolean,
-    modifier: Modifier
+    showMealPicker: Boolean
 ) {
     Box(
-        modifier = modifier
+        modifier = Modifier
     ) {
         IconButton(onClick = iconClickedAction) {
             Icon(

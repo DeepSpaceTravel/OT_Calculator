@@ -39,8 +39,7 @@ fun TimeRow(
         OcIconButton(
             Icons.Default.Edit,
             onClickAction = onClickAction,
-            contentDescription = contentDescription,
-            modifier = modifier
+            contentDescription = contentDescription
         ){
             OcTimePicker(
                 showTimePicker = showTimePicker,

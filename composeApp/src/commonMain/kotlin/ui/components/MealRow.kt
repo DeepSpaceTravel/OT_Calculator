@@ -36,8 +36,7 @@ fun MealRow(
             iconClickedAction = iconClickedAction,
             menuItemClickedAction = menuItemClickedAction,
             onDismissRequest = onDismissRequest,
-            showMealPicker = showMealPicker,
-            modifier = modifier
+            showMealPicker = showMealPicker
         )
     }
 }
