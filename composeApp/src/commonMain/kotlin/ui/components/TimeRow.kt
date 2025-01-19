@@ -8,14 +8,14 @@ import androidx.compose.material3.TimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotlinx.datetime.LocalTime
 import ui.HourAndMinute
-import ui.pickers.OcIconButton
-import ui.pickers.OcTimePicker
+import ui.components.textBox.OcTimeText
+import ui.components.textBox.pickers.OcIconButton
+import ui.components.textBox.pickers.OcTimePicker
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TimeRow(
+internal fun TimeRow(
     hour: Byte,
     minute: Byte,
     title: String,

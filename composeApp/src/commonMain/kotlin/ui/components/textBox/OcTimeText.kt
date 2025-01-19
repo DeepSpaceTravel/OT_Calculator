@@ -1,4 +1,4 @@
-package ui.components
+package ui.components.textBox
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -7,7 +7,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import ui.HourAndMinute
 
 @Composable
-fun OcTimeText(
+internal fun OcTimeText(
     title: String,
     hourAndMinute: HourAndMinute,
     modifier: Modifier

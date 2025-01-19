@@ -14,10 +14,12 @@ androidx-test-junit = "1.2.1"
 compose-plugin = "1.6.11"
 junit = "4.13.2"
 kotlin = "2.0.20"
-koin = "4.0.0"
+
 dateTime = "0.6.0"
-sqlDelight = "2.0.2"
 voyager = "1.1.0-beta03"
+sqlDelight = "2.0.2"
+koin = "4.0.0"
+kermit = "2.0.5"
 
 foundationLayoutAndroid = "1.7.6"
 animationAndroid = "1.7.6"
@@ -36,13 +38,12 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 kotlinx-date-time = {group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "dateTime"}
 androidx-splashscreen = {group = "androidx.core", name = "core-splashscreen", version.ref = "androidx-splashScreen"}
-
-voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
-
-
-androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
-androidx-animation-android = { group = "androidx.compose.animation", name = "animation-android", version.ref = "animationAndroid" }
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+
+#Voyager
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
+voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
 
 #sqlDelight
 android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
@@ -52,6 +53,9 @@ runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
 #Koin
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+
+#Kermit the logging
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

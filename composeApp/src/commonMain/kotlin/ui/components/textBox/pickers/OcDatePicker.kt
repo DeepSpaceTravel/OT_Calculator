@@ -1,4 +1,4 @@
-package ui.pickers
+package ui.components.textBox.pickers
 
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OcDatePicker(showDatePicker: Boolean,
+internal fun OcDatePicker(showDatePicker: Boolean,
                  dismissAction: () -> Unit,
                  confirmAction: () -> Unit,
                  cancelAction: () -> Unit,

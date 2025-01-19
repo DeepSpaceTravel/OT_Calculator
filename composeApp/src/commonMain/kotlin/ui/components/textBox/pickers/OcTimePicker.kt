@@ -1,4 +1,4 @@
-package ui.pickers
+package ui.components.textBox.pickers
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -26,7 +26,7 @@ import androidx.compose.ui.window.DialogProperties
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OcTimePicker(
+internal fun OcTimePicker(
     showTimePicker: Boolean,
     confirmAction: () -> Unit,
     cancelAction: () -> Unit,

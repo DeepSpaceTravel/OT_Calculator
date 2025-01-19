@@ -36,7 +36,9 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.splashscreen)
+//            SQLDelight
             implementation(libs.android.driver)
+//            Koin
             implementation(libs.koin.androidx.compose)
         }
 
@@ -50,14 +52,22 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(compose.animation)
             implementation(compose.materialIconsExtended)
+//            Datetime
             implementation(libs.kotlinx.date.time)
-
             implementation(libs.lifecycle.viewmodel.compose)
+//            SQLDelight
             implementation(libs.runtime)
+//            Koin
             implementation(libs.koin.core)
+//            Voyager
+            implementation(libs.voyager.navigator)
+
+//            Kermit the Logging
+            implementation(libs.kermit)
         }
 
         iosMain.dependencies {
+//            SQLDelight
             implementation(libs.native.driver)
         }
     }

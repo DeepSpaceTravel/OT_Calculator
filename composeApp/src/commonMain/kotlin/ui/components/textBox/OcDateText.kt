@@ -1,4 +1,4 @@
-package ui.components
+package ui.components.textBox
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -12,7 +12,7 @@ import overtime_calculator.composeapp.generated.resources.selected_date_is
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ocDateText(selectedDate: LocalDate,
+internal fun ocDateText(selectedDate: LocalDate,
                modifier: Modifier) {
 
     //Main text content

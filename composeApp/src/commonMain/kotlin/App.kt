@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.Navigator
 import com.example.project.AppTheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -21,6 +22,7 @@ import overtime_calculator.composeapp.generated.resources.Res
 import overtime_calculator.composeapp.generated.resources.compose_multiplatform
 import ui.CalculationScreen
 import ui.CalculationViewModel
+import ui.EntryListScreen
 
 @Composable
 @Preview
@@ -34,22 +36,26 @@ fun App() {
                     .fillMaxWidth().windowInsetsPadding(WindowInsets.statusBars),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Button(onClick = { showContent = !showContent }) {
-                    Text("Click me!")
-                }
-                AnimatedVisibility(showContent) {
-                    val greeting = remember { Greeting().greet() }
-                    Column(
-                        Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Image(painterResource(Res.drawable.compose_multiplatform), null)
-                        Text("Compose: $greeting")
-                    }
-                }
+//                Button(onClick = { showContent = !showContent }) {
+//                    Text("Click me!")
+//                }
+//                AnimatedVisibility(showContent) {
+//                    val greeting = remember { Greeting().greet() }
+//                    Column(
+//                        Modifier.fillMaxWidth(),
+//                        horizontalAlignment = Alignment.CenterHorizontally
+//                    ) {
+//                        Image(painterResource(Res.drawable.compose_multiplatform), null)
+//                        Text("Compose: $greeting")
+//                    }
+//                }
 
                 val viewModel = CalculationViewModel()
-                CalculationScreen(viewModel)
+//                CalculationScreen(viewModel)
+
+//                Voyager initialize
+//                Navigator(EntryListScreen())
+//                Navigator(CalculationScreen())
             }
         }
     }

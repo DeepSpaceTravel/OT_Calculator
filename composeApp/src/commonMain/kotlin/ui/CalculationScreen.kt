@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
@@ -13,9 +15,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import ui.components.DateRow
 import ui.components.MealRow
 import ui.components.TimeRow
+import ui.components.TopBar
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,7 +31,22 @@ fun CalculationScreen(calculationViewModel: CalculationViewModel) {
     val checkInTimePickerState = rememberTimePickerState()
     val checkOutTimePickerState = rememberTimePickerState()
 
-    val columnPadding = PaddingValues(start = 24.dp, end = 8.dp)
+//    val navigator = LocalNavigator.currentOrThrow
+
+    TopBar(
+        title = "Top app bar",
+        onClick = {
+//            navigator.push(EntryListScreen())
+        }
+    )
+    Button(
+        onClick = {
+//            navigator.pop()
+                  },
+        content = { Text("Yeet") })
+
+    val paddingOffset = 0.dp
+    val columnPadding = PaddingValues(start = paddingOffset+16.dp, end = paddingOffset)
     Column(modifier = Modifier
         .fillMaxSize()
         .padding(columnPadding)) {

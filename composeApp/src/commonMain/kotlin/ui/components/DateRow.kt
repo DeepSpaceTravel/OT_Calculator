@@ -9,12 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import kotlinx.datetime.LocalDate
-import ui.pickers.OcDatePicker
-import ui.pickers.OcIconButton
+import ui.components.textBox.ocDateText
+import ui.components.textBox.pickers.OcDatePicker
+import ui.components.textBox.pickers.OcIconButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DateRow(
+internal fun DateRow(
     selectedDate: LocalDate,
     onClickAction: () -> Unit,
     showDatePicker: Boolean,
