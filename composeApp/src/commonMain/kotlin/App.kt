@@ -13,7 +13,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.CurrentScreen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.LocalNavigatorSaver
 import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import com.example.project.AppTheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -23,6 +27,7 @@ import overtime_calculator.composeapp.generated.resources.compose_multiplatform
 import ui.CalculationScreen
 import ui.CalculationViewModel
 import ui.EntryListScreen
+import ui.components.TopBar
 
 @Composable
 @Preview
@@ -50,12 +55,21 @@ fun App() {
 //                    }
 //                }
 
-                val viewModel = CalculationViewModel()
+//                Original implementation
+//                val viewModel = CalculationViewModel()
 //                CalculationScreen(viewModel)
 
 //                Voyager initialize
-//                Navigator(EntryListScreen())
-//                Navigator(CalculationScreen())
+                Navigator(CalculationScreen()) {
+                    val navigator = LocalNavigator.currentOrThrow
+                    TopBar(
+                        title = "Top app bar",
+                        onClick = {
+                            navigator.push(EntryListScreen())
+                        }
+                    )
+                    CurrentScreen()
+                }
             }
         }
     }

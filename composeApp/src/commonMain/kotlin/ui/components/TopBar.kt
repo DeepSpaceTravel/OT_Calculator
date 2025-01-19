@@ -15,6 +15,7 @@ internal fun TopBar(
     title: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier) {
+
     TopAppBar(
         title = {
             Text(title)

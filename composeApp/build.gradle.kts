@@ -61,6 +61,7 @@ kotlin {
             implementation(libs.koin.core)
 //            Voyager
             implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenModel)
 
 //            Kermit the Logging
             implementation(libs.kermit)

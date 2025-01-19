@@ -1,9 +1,11 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package ui
 
 import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TimePickerState
-import androidx.lifecycle.ViewModel
+import cafe.adriel.voyager.core.model.ScreenModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +15,9 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
 @OptIn(ExperimentalMaterial3Api::class)
-class CalculationViewModel: ViewModel (){
+//class CalculationViewModel: ViewModel (){
+
+class CalculationScreenModel: ScreenModel {
     private val _uiState = MutableStateFlow(CalculationUiState())
     val uiState: StateFlow<CalculationUiState> = _uiState.asStateFlow()
 
@@ -67,5 +71,4 @@ class CalculationViewModel: ViewModel (){
     fun closeMealPicker() {
         _uiState.update { it.copy(showMealPicker = false) }
     }
-
 }
