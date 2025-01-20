@@ -13,7 +13,8 @@ import ui.components.textBox.pickers.OcIconButton
 @Composable
 internal fun TopBar(
     title: String,
-    onClick: () -> Unit,
+//    onClick: () -> Unit,
+//    pushScreen:
     modifier: Modifier = Modifier) {
 
     TopAppBar(
@@ -22,7 +23,8 @@ internal fun TopBar(
         },
         navigationIcon = {
             OcIconButton(
-                onClickAction = onClick,
+//                onClickAction = onClick,
+                onClickAction = {},
                 icon = Icons.Default.Menu,
                 contentDescription = "//--Place Holder--//",
                 modifier = modifier

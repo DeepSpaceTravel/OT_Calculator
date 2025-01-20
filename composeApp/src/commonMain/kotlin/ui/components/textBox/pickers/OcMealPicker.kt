@@ -16,15 +16,18 @@ internal fun OcMealPicker(
     iconClickedAction: () -> Unit,
     menuItemClickedAction: (Byte) -> Unit,
     onDismissRequest: () -> Unit,
-    showMealPicker: Boolean
+    showMealPicker: Boolean,
+    modifier: Modifier
 ) {
     Box(
         modifier = Modifier
     ) {
-        IconButton(onClick = iconClickedAction) {
+        IconButton(
+            onClick = iconClickedAction,
+            modifier = modifier) {
             Icon(
                 Icons.Rounded.Edit,
-                contentDescription = "//Place Holder//"
+                contentDescription = "//Place Holder//",
             )
         }
         DropdownMenu(

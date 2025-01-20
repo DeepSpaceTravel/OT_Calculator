@@ -1,4 +1,6 @@
 package data
 
-class EntryRepository {
+class EntryRepository(
+
+) {
 }

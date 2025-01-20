@@ -8,7 +8,7 @@ internal class Database (databaseDriverFactory: DatabaseDriverFactory){
     private val database = AppDatabase(databaseDriverFactory.createDriver())
     private val dbQuery = database.overtimeInfoQueries
 
-    internal fun getAllDates(): List<OvertimeInfo> {
+    internal fun getAllInfo(): List<OvertimeInfo> {
         return dbQuery.selectAllDates().executeAsList()
     }
 

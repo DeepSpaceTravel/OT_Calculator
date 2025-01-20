@@ -1,24 +1,41 @@
 package ui
 
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 
-class EntryListScreen: Screen {
+@Composable
+fun EntryListScreen(entryListScreenModel: EntryListViewModel){
 
-    @Composable
-    override fun Content() {
-//        TODO("Not yet implemented")
-        Text("Hello World")
+    val entryListUiState by entryListScreenModel.uiState.collectAsState()
 
-        val navigator = LocalNavigator.currentOrThrow
-        Button(
-            onClick = {
-            navigator.pop()
-            },
-            content = { Text("Yeet") })
+    Text("Hello World")
+    Button(
+        onClick = {},
+        content = { Text("Yeet") })
+    LazyColumn {
+        items(5) { index ->
+            Text("Item: $index")
+        }
+    }
+}
+
+@Composable
+private fun EntryList(
+    modifier: Modifier
+){
+}
+@Composable
+private fun EntryCard(
+    modifier: Modifier
+) {
+    Card(
+        modifier = modifier
+    ){
     }
 }

@@ -1,6 +1,7 @@
 package ui.components
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.offset
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.DatePickerState
@@ -8,6 +9,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import kotlinx.datetime.LocalDate
 import ui.components.textBox.ocDateText
 import ui.components.textBox.pickers.OcDatePicker
@@ -38,7 +40,8 @@ internal fun DateRow(
         OcIconButton(
             Icons.Default.Edit,
             onClickAction = onClickAction,
-            contentDescription = contentDescription
+            contentDescription = contentDescription,
+            modifier = modifier.offset(x = 16.dp)
         ) {
             OcDatePicker(
                 showDatePicker = showDatePicker,

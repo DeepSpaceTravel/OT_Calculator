@@ -1,9 +1,11 @@
 package ui.components
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import ui.components.textBox.OcMealText
 import ui.components.textBox.pickers.OcMealPicker
 
@@ -29,7 +31,8 @@ internal fun MealRow(
             iconClickedAction = iconClickedAction,
             menuItemClickedAction = menuItemClickedAction,
             onDismissRequest = onDismissRequest,
-            showMealPicker = showMealPicker
+            showMealPicker = showMealPicker,
+            modifier = modifier.offset(x = 16.dp)
         )
     }
 }

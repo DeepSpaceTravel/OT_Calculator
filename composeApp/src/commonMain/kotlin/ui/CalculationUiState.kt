@@ -1,12 +1,10 @@
 package ui
 
-import androidx.compose.material3.ExperimentalMaterial3Api
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
-@OptIn(ExperimentalMaterial3Api::class)
 data class CalculationUiState(
     val ocDate: LocalDate = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date,
     val checkInTime: HourAndMinute = HourAndMinute(hour = 8, minute = 0),
