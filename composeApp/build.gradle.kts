@@ -8,13 +8,15 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.sqldelight)
+//    I added this
+//    kotlin("plugin.serialization") version "2.0.21"
 }
 
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+            jvmTarget.set(JvmTarget.JVM_21)
         }
 
     }
@@ -40,6 +42,8 @@ kotlin {
             implementation(libs.android.driver)
 //            Koin
             implementation(libs.koin.androidx.compose)
+//            Navigation
+//            implementation(libs.navigation.compose)
         }
 
         commonMain.dependencies {
@@ -51,6 +55,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(compose.animation)
+            implementation(compose.animationGraphics)
             implementation(compose.materialIconsExtended)
 //            Datetime
             implementation(libs.kotlinx.date.time)
@@ -59,6 +64,12 @@ kotlin {
             implementation(libs.runtime)
 //            Koin
             implementation(libs.koin.core)
+//            Animation
+//            implementation(libs.androidx.animation)
+//            Navigation
+            implementation(libs.navigation.compose)
+
+
 //            Voyager
 //            implementation(libs.voyager.navigator)
 //            implementation(libs.voyager.screenModel)
@@ -101,8 +112,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
 
     }
     buildFeatures {

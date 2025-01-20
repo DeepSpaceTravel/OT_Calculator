@@ -19,11 +19,12 @@ dateTime = "0.6.0"
 sqlDelight = "2.0.2"
 koin = "4.0.0"
 kermit = "2.0.5"
-#voyager = "1.1.0-beta03"
 
-foundationLayoutAndroid = "1.7.6"
-animationAndroid = "1.7.6"
-lifecycleViewmodelCompose = "2.8.0"
+lifecycleViewmodelCompose = "2.8.2"
+animation = "1.8.0-alpha08"
+#navigationCompose = "2.9.0-alpha04"
+navigationCompose = "2.8.0-alpha11"
+#voyager = "1.1.0-beta03"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,9 +37,17 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
-kotlinx-date-time = {group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "dateTime"}
 androidx-splashscreen = {group = "androidx.core", name = "core-splashscreen", version.ref = "androidx-splashScreen"}
+
+#From Jetbrains
+kotlinx-date-time = {group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "dateTime"}
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+
+#Animation
+androidx-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "animation"}
+
+#Navigation
+navigation-compose = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 #Voyager
 #voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }

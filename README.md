@@ -2,12 +2,15 @@
 An offline calculator for calculating extra salary paid
 
 ## Intro
+This is a hobby project.
 The aim for this project is to teach myself how to build a multiplatform app that runs on both iOS and Android.
-Also, to make my life easier.
+
+[//]: # (Also, to make my life easier.)
 
 [Back to Top](#overtime_calculator)
 
 ## Roadmap
+- [ ] Learn how to use the navigation library
 - [ ] Learn how to manipulate the Database
 - [ ] Learn how to insert an entry
 - [ ] Read the entries from the Database and display them using LazyColumn
@@ -20,10 +23,10 @@ Also, to make my life easier.
 |Libraries Used||
 |:-------|:--------|
 |Storage|SQLDelight|
-|Nav    |Voyager   |
 |Logging|Kermit    |(Yet implemented)
 |Network|Ktor      |(Yet implemented)
-|||
+
+[//]: # (|Nav    |Voyager   |)
 
 [Back to Top](#overtime_calculator)
 
