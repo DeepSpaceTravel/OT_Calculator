@@ -1,11 +1,12 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package ui
 
 import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TimePickerState
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -69,5 +70,13 @@ class CalculationViewModel: ViewModel(){
 
     fun closeMealPicker() {
         _uiState.update { it.copy(showMealPicker = false) }
+    }
+
+    companion object {
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                CalculationViewModel()
+            }
+        }
     }
 }

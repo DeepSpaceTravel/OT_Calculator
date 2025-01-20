@@ -68,6 +68,7 @@ kotlin {
 //            implementation(libs.androidx.animation)
 //            Navigation
             implementation(libs.navigation.compose)
+            implementation(libs.navigation.runtime)
 
 
 //            Voyager

@@ -22,7 +22,6 @@ kermit = "2.0.5"
 
 lifecycleViewmodelCompose = "2.8.2"
 animation = "1.8.0-alpha08"
-#navigationCompose = "2.9.0-alpha04"
 navigationCompose = "2.8.0-alpha11"
 #voyager = "1.1.0-beta03"
 
@@ -48,6 +47,7 @@ androidx-animation = { group = "androidx.compose.animation", name = "animation",
 
 #Navigation
 navigation-compose = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+navigation-runtime = { group = "org.jetbrains.androidx.navigation", name = "navigation-runtime", version.ref = "navigationCompose" }
 
 #Voyager
 #voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }

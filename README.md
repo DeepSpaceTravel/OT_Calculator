@@ -26,7 +26,7 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 |Logging|Kermit    |(Yet implemented)
 |Network|Ktor      |(Yet implemented)
 
-[//]: # (|Nav    |Voyager   |)
+[//]: # (|Nav    |Native   |)
 
 [Back to Top](#overtime_calculator)
 

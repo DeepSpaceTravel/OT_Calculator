@@ -12,9 +12,8 @@ import ui.components.textBox.pickers.OcIconButton
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun TopBar(
-    title: String,
-//    onClick: () -> Unit,
-//    pushScreen:
+    title: String = "Top app bar",
+    onMenuClick: () -> Unit,
     modifier: Modifier = Modifier) {
 
     TopAppBar(
@@ -23,8 +22,7 @@ internal fun TopBar(
         },
         navigationIcon = {
             OcIconButton(
-//                onClickAction = onClick,
-                onClickAction = {},
+                onClickAction = onMenuClick,
                 icon = Icons.Default.Menu,
                 contentDescription = "//--Place Holder--//",
                 modifier = modifier

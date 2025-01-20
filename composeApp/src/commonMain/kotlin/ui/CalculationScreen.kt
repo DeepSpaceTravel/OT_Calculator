@@ -14,6 +14,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import ui.components.DateRow
 import ui.components.MealRow
 import ui.components.TimeRow
@@ -22,7 +25,9 @@ import ui.components.TimeRow
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CalculationScreen(
-    calculationViewModel: CalculationViewModel) {
+    calculationViewModel: CalculationViewModel = viewModel(factory = CalculationViewModel.Factory),
+    navController: NavHostController = rememberNavController()
+) {
 
     val calculationUiState by calculationViewModel.uiState.collectAsState()
 

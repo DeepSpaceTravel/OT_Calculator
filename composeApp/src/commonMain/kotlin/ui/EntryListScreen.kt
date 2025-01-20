@@ -1,5 +1,6 @@
 package ui
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -8,19 +9,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun EntryListScreen(entryListScreenModel: EntryListViewModel){
+fun EntryListScreen(
+    entryListViewModel: EntryListViewModel = viewModel(factory = EntryListViewModel.Factory),
+    navController: NavController
+){
 
-    val entryListUiState by entryListScreenModel.uiState.collectAsState()
+    val entryListUiState by entryListViewModel.uiState.collectAsState()
 
-    Text("Hello World")
-    Button(
-        onClick = {},
-        content = { Text("Yeet") })
-    LazyColumn {
-        items(5) { index ->
-            Text("Item: $index")
+    Column {
+        Text("Hello World")
+        Button(
+            onClick = { navController.navigateUp() },
+            content = { Text("Yeet") })
+        LazyColumn {
+            items(5) { index ->
+                Text("Item: $index")
+            }
         }
     }
 }
