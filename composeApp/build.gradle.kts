@@ -40,8 +40,6 @@ kotlin {
             implementation(libs.androidx.splashscreen)
 //            SQLDelight
             implementation(libs.android.driver)
-//            Koin
-            implementation(libs.koin.androidx.compose)
 //            Navigation
 //            implementation(libs.navigation.compose)
         }
@@ -64,6 +62,9 @@ kotlin {
             implementation(libs.runtime)
 //            Koin
             implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel.navigation)
 //            Animation
 //            implementation(libs.androidx.animation)
 //            Navigation

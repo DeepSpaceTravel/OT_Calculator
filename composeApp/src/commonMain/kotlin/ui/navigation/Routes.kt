@@ -1,6 +1,6 @@
 package ui.navigation
 
-enum class NavRoutes() {
+enum class Routes() {
     Home,
     EntryList
 }

@@ -8,11 +8,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
 internal fun OcIconButton(icon: ImageVector,
-                 onClickAction: () -> Unit,
-                 contentDescription: String,
-                 modifier: Modifier = Modifier,
-                 content: @Composable (() -> Unit)? = null) {
+                          onClickAction: () -> Unit,
+                          enabled: Boolean = true,
+                          contentDescription: String,
+                          modifier: Modifier = Modifier,
+                          content: @Composable (() -> Unit)? = null) {
     IconButton(onClick = onClickAction,
+        enabled = enabled,
         modifier = modifier){
         Icon(
             icon,
