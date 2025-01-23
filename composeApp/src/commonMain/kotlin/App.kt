@@ -19,8 +19,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.project.AppTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import ui.CalculationScreen
-import ui.EntryListScreen
+import ui.screens.CalculationScreen
+import ui.screens.EntryListScreen
 import ui.components.TopBar
 import ui.navigation.Routes
 
@@ -29,9 +29,11 @@ import ui.navigation.Routes
 fun App(
     navController: NavHostController = rememberNavController()
 ) {
-    AppTheme{
-        Surface(modifier = Modifier.fillMaxSize(),
-            tonalElevation = 20.dp) {
+    AppTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            tonalElevation = 20.dp
+        ) {
             var showContent by remember { mutableStateOf(false) }
             Column(
                 Modifier
@@ -59,12 +61,13 @@ fun App(
 
                 NavHost(
                     navController = navController,
-                    startDestination = Routes.Home.name){
-                    composable(route = Routes.Home.name){
+                    startDestination = Routes.Home.name
+                ) {
+                    composable(route = Routes.Home.name) {
                         CalculationScreen()
                     }
-                    composable(route = Routes.EntryList.name){
-                        EntryListScreen(onBackClick = { navController.popBackStack(route = Routes.Home.name, false)})
+                    composable(route = Routes.EntryList.name) {
+                        EntryListScreen()
                     }
                 }
             }

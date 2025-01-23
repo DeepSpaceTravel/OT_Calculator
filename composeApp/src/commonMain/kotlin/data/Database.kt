@@ -4,7 +4,7 @@ import org.example.project.AppDatabase
 import org.example.project.OvertimeInfo
 import org.example.project.databaseFactory.DatabaseDriverFactory
 
-internal class Database (databaseDriverFactory: DatabaseDriverFactory){
+class Database(databaseDriverFactory: DatabaseDriverFactory){
     private val database = AppDatabase(databaseDriverFactory.createDriver())
     private val dbQuery = database.overtimeInfoQueries
 

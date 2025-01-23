@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ui.HourAndMinute
+import ui.viewmodels.HourAndMinute
 import ui.components.textBox.OcTimeText
 import ui.components.textBox.pickers.OcIconButton
 import ui.components.textBox.pickers.OcTimePicker

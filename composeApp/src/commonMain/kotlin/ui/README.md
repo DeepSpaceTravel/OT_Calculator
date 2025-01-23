@@ -1,9 +1,15 @@
-# Main Screen Layout
+# Wanted Main Screen Layout
 
-TopBar
-Column{
-    Row{
+- TopBar
+    - Column{
+        - Row{}
+    - }
 
-   }
-}
-BottomBar
+[//]: # (- BottomBar)
+
+## Current Layout
+- TopBar
+  - Column{
+    - Row{}
+    - Row{}
+  - }

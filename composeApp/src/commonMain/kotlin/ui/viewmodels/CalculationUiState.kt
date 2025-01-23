@@ -1,4 +1,4 @@
-package ui
+package ui.viewmodels
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate

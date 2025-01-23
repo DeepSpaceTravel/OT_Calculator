@@ -1,4 +1,4 @@
-package ui
+package ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,14 +14,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.koin.compose.viewmodel.koinViewModel
+import ui.viewmodels.EntryListViewModel
 
 @Composable
 fun EntryListScreen(
-    entryListViewModel: EntryListViewModel = viewModel(factory = EntryListViewModel.Factory),
-    onBackClick: () -> Unit,
+    entryListViewModel: EntryListViewModel = koinViewModel(),
     modifier: Modifier = Modifier
 ){
 
@@ -32,9 +31,6 @@ fun EntryListScreen(
         modifier = modifier.fillMaxSize()
     ) {
         Text("Hello World")
-        Button(
-            onClick = onBackClick,
-            content = { Text("Yeet") })
 
         EntryCard()
 
@@ -42,6 +38,9 @@ fun EntryListScreen(
             items(5) { index ->
                 Text("Item: ${index+1}")
             }
+        }
+        Button(onClick = {entryListViewModel.getAllInfo()}){
+            Text("get Info")
         }
     }
 }
@@ -53,6 +52,7 @@ private fun EntryList(
 }
 
 @Composable
+@Preview
 private fun EntryCard(
     modifier: Modifier = Modifier
 ) {

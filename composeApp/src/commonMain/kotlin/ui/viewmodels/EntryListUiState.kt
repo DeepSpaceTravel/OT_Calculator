@@ -1,4 +1,4 @@
-package ui
+package ui.viewmodels
 
 import org.example.project.OvertimeInfo
 
