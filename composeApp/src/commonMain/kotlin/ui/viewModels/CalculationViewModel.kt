@@ -1,12 +1,9 @@
-package ui.viewmodels
+package ui.viewModels
 
 import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TimePickerState
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,6 +11,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.koin.core.component.KoinComponent
+import ui.viewmodels.CalculationUiState
+import ui.viewmodels.HourAndMinute
 
 @OptIn(ExperimentalMaterial3Api::class)
 class CalculationViewModel(
@@ -72,13 +72,5 @@ class CalculationViewModel(
 
     fun closeMealPicker() {
         _uiState.update { it.copy(showMealPicker = false) }
-    }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                CalculationViewModel()
-            }
-        }
     }
 }

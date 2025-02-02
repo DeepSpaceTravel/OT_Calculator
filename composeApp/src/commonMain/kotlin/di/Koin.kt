@@ -1,17 +1,15 @@
 package di
 
-import data.Database
-import data.EntryRepoInterface
-import data.EntryRepoImpl
-import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModel
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
-import ui.viewmodels.EntryListViewModel
+import ui.viewModels.CalculationViewModel
 
-expect val platformModule: Module
+val commonModule = module {
+    viewModelModule
+}
 
-val commonModule: Module = module {
-    single<EntryRepoInterface>{ EntryRepoImpl(database = get()) }
-    viewModel<EntryListViewModel> { EntryListViewModel(entryRepo = get()) }
-    println("Repo injected")
+private val viewModelModule = module {
+//    viewModel<CalculationViewModel>{ CalculationViewModel() }
+    viewModelOf(::CalculationViewModel)
 }

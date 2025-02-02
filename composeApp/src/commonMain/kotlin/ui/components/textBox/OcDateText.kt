@@ -7,8 +7,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.buildAnnotatedString
 import kotlinx.datetime.LocalDate
 import org.jetbrains.compose.resources.stringResource
-import overtime_calculator.composeapp.generated.resources.Res
-import overtime_calculator.composeapp.generated.resources.selected_date_is
+import ot_calculator.composeapp.generated.resources.Res
+import ot_calculator.composeapp.generated.resources.selected_date_is
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

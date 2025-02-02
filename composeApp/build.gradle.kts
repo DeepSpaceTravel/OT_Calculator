@@ -5,20 +5,17 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
     alias(libs.plugins.sqldelight)
-//    I added this
-//    kotlin("plugin.serialization") version "2.0.21"
 }
 
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
+            jvmTarget.set(JvmTarget.JVM_11)
         }
-
     }
     
     listOf(
@@ -37,29 +34,26 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.splashscreen)
-//            SQLDelight
-            implementation(libs.android.driver)
-//            Koin
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
-//            Navigation
-//            implementation(libs.navigation.compose)
-        }
 
+            //Splash Screen
+            implementation(libs.androidx.splashscreen)
+
+            //SQLDelight
+            implementation(libs.android.driver)
+        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
-//            implementation(compose.material)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(compose.animation)
-            implementation(compose.animationGraphics)
-            implementation(compose.materialIconsExtended)
-            implementation(libs.lifecycle.viewmodel.compose)
-//            Datetime
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+
+            //Manual Added
+
+            //Datetime
             implementation(libs.kotlinx.date.time)
 //            SQLDelight
             implementation(libs.runtime)
@@ -68,24 +62,11 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.compose.viewmodel.navigation)
-//            Animation
-//            implementation(libs.androidx.animation)
 //            Navigation
             implementation(libs.navigation.compose)
             implementation(libs.navigation.runtime)
-
-
-//            Voyager
-//            implementation(libs.voyager.navigator)
-//            implementation(libs.voyager.screenModel)
-//            implementation(libs.voyager.transitions)
-
-//            Kermit the Logging
-            implementation(libs.kermit)
         }
-
         iosMain.dependencies {
-//            SQLDelight
             implementation(libs.native.driver)
         }
     }
@@ -94,10 +75,6 @@ kotlin {
 android {
     namespace = "org.example.project"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
         applicationId = "org.example.project"
@@ -117,16 +94,13 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
 
-    }
-    buildFeatures {
-        compose = true
-    }
-    dependencies {
-        debugImplementation(compose.uiTooling)
-    }
+dependencies {
+    debugImplementation(compose.uiTooling)
 }
 
 //SQL-Delight Database

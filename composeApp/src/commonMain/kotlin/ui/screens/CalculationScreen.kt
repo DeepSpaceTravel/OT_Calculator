@@ -1,6 +1,7 @@
 package ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,22 +15,22 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import ui.viewmodels.CalculationViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import ui.components.DateRow
 import ui.components.MealRow
 import ui.components.TimeRow
+import ui.viewModels.CalculationViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CalculationScreen(
-    calculationViewModel: CalculationViewModel = viewModel(factory = CalculationViewModel.Factory),
     navController: NavHostController = rememberNavController()
 ) {
 
+    val calculationViewModel: CalculationViewModel = koinViewModel<CalculationViewModel>()
     val calculationUiState by calculationViewModel.uiState.collectAsState()
 
     val datePickerState = rememberDatePickerState()
@@ -44,6 +45,9 @@ fun CalculationScreen(
             .padding(basicPadding)
     ) {
         //TODO: Fix this bloody padding thing
+        Column {
+            Row {  }
+        }
         DateRow(
             selectedDate = calculationUiState.ocDate,
             onClickAction = { calculationViewModel.showDatePicker() },

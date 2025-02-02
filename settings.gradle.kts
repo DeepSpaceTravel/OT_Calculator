@@ -1,4 +1,4 @@
-rootProject.name = "overtime_calculator"
+rootProject.name = "OT_Calculator"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -8,7 +8,6 @@ pluginManagement {
                 includeGroupAndSubgroups("androidx")
                 includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")
-                includeGroupAndSubgroups("org.jetbrains")
             }
         }
         mavenCentral()
@@ -23,7 +22,6 @@ dependencyResolutionManagement {
                 includeGroupAndSubgroups("androidx")
                 includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")
-                includeGroupAndSubgroups("org.jetbrains")
             }
         }
         mavenCentral()
