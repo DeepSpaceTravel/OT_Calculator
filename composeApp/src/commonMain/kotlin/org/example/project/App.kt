@@ -21,6 +21,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.project.AppTheme
 import di.commonModule
+import di.platformModule
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
@@ -30,6 +31,7 @@ import ot_calculator.composeapp.generated.resources.compose_multiplatform
 import ui.components.TopBar
 import ui.navigation.Routes
 import ui.screens.CalculationScreen
+import ui.screens.EntryListScreen
 
 @Composable
 @Preview
@@ -38,7 +40,10 @@ fun App(
 ) {
     KoinApplication(
         application = {
-            modules(commonModule)
+            modules(
+//                platformModule(),
+                commonModule()
+            )
         }
     ) {
         AppTheme {
@@ -52,19 +57,19 @@ fun App(
                             .windowInsetsPadding(WindowInsets.statusBars),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Button(onClick = { showContent = !showContent }) {
-                            Text("Click me!")
-                        }
-                        AnimatedVisibility(showContent) {
-                            val greeting = remember { Greeting().greet() }
-                            Column(
-                                Modifier.fillMaxWidth(),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Image(painterResource(Res.drawable.compose_multiplatform), null)
-                                Text("Compose: $greeting")
-                            }
-                        }
+//                        Button(onClick = { showContent = !showContent }) {
+//                            Text("Click me!")
+//                        }
+//                        AnimatedVisibility(showContent) {
+//                            val greeting = remember { Greeting().greet() }
+//                            Column(
+//                                Modifier.fillMaxWidth(),
+//                                horizontalAlignment = Alignment.CenterHorizontally
+//                            ) {
+//                                Image(painterResource(Res.drawable.compose_multiplatform), null)
+//                                Text("Compose: $greeting")
+//                            }
+//                        }
                         TopBar(
                             onMenuClick = { navController.navigate(route = Routes.EntryList.name) },
                             navController = navController
@@ -72,13 +77,15 @@ fun App(
 
                         NavHost(
                             navController = navController,
-                            startDestination = Routes.Home.name
+                            startDestination = Routes.Home.name,
+//                            Comment this out to see what happens, an annoying little layout bug
+                            modifier = Modifier.fillMaxSize()
                         ) {
                             composable(route = Routes.Home.name) {
                                 CalculationScreen()
                             }
                             composable(route = Routes.EntryList.name) {
-//                        EntryListScreen()
+                                EntryListScreen()
                             }
                         }
                     }

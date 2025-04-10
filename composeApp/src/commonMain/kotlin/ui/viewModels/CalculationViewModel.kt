@@ -9,19 +9,25 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.koin.core.component.KoinComponent
-import ui.viewmodels.CalculationUiState
-import ui.viewmodels.HourAndMinute
 
 @OptIn(ExperimentalMaterial3Api::class)
 class CalculationViewModel(
-//    private val entryRepo: EntryRepo
+//    private val overtimeInfoRepo: OvertimeInfoRepo
 ): ViewModel(){
 
     private val _uiState = MutableStateFlow(CalculationUiState())
     val uiState: StateFlow<CalculationUiState> = _uiState.asStateFlow()
+
+    init {
+        getAllInfo()
+    }
+
+    private fun getAllInfo() {
+//        println(overtimeInfoRepo.getLocalData().toString())
+    }
 
     fun showDatePicker() {
         _uiState.update { it.copy(showDatePicker = true) }
@@ -47,7 +53,7 @@ class CalculationViewModel(
     }
 
     fun selectCheckInTime(timePickerState: TimePickerState) {
-        _uiState.update { it.copy(checkInTime = HourAndMinute(hour = timePickerState.hour.toByte(), minute = timePickerState.minute.toByte())) }
+        _uiState.update { it.copy(checkInTime = LocalTime(hour = timePickerState.hour, minute = timePickerState.minute)) }
     }
 
     fun showCheckOutTimePicker() {
@@ -55,7 +61,7 @@ class CalculationViewModel(
     }
 
     fun selectCheckOutTime(timePickerState: TimePickerState) {
-        _uiState.update { it.copy(checkOutTime = HourAndMinute(hour = timePickerState.hour.toByte(), minute = timePickerState.minute.toByte())) }
+        _uiState.update { it.copy(checkOutTime = LocalTime(hour = timePickerState.hour, minute = timePickerState.minute)) }
     }
 
     fun closeTimePicker() {

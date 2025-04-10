@@ -12,13 +12,13 @@ import ot_calculator.composeapp.generated.resources.selected_date_is
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun ocDateText(selectedDate: LocalDate,
-               modifier: Modifier) {
+internal fun OcDateText(selectedDate: LocalDate,
+               modifier: Modifier = Modifier) {
 
     //Main text content
     Text(
         text = buildAnnotatedString {
-            append((stringResource(Res.string.selected_date_is)))
+            append(stringResource(Res.string.selected_date_is))
             append(selectedDate.toString())
             append(" (")
             append(selectedDate.dayOfWeek.toString().take(3))

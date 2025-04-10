@@ -4,6 +4,8 @@
     <string name="year">年</string>
     <string name="month">月</string>
     <string name="day">日</string>
+    <string name="check_in_time">上班時間：</string>
+    <string name="check_out_time">下班時間：</string>
 
 
 

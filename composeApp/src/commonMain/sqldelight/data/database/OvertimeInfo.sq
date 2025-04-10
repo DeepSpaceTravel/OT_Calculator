@@ -1,0 +1,36 @@
+-- ISO 8601 compliant
+CREATE TABLE OvertimeInfo (
+    deleted INTEGER NOT NULL,
+    overtime_date TEXT PRIMARY KEY NOT NULL,
+    check_in_time TEXT NOT NULL,
+    check_out_time TEXT NOT NULL,
+    meal_count INTEGER,
+    multiplier REAL NOT NULL,
+
+    hourly_rate REAL NOT NULL,
+    normal_working_length REAL NOT NULL
+--     overtime_pay INTEGER NOT NULL
+);
+
+CREATE INDEX OvertimeInfo_overtime_date ON OvertimeInfo(overtime_date);
+
+-- Queries
+selectAllDates:
+SELECT *
+FROM OvertimeInfo;
+
+-- Insertions
+insertOcDate:
+INSERT INTO OvertimeInfo(deleted, overtime_date, check_in_time, check_out_time, meal_count, multiplier, hourly_rate, normal_working_length)
+VALUES (deleted = 0, :overtime_date, :check_in_time, :check_out_time, :meal_count, :multiplier, :hourly_rate, :normal_working_length);
+
+-- Deletions
+removeAllEntries:
+UPDATE OvertimeInfo
+SET deleted = 1;
+
+removeOneEntry:
+-- This only hides the specific entry
+UPDATE OvertimeInfo
+SET deleted = 1
+WHERE overtime_date = :overtime_date;

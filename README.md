@@ -9,6 +9,9 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 
 [Back to Top](#overtime_calculator)
 
+## If things go sideways:
+type `./gradlew cleanBuildCache`
+
 ## Roadmap
 - [ ] Learn how to use the navigation library
 - [ ] Make sense of Koin
@@ -21,11 +24,11 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 [Back to Top](#overtime_calculator)
 
 ## Libraries Used
-|Libraries Used||
-|:-------|:--------|
-|Storage|SQLDelight|
-|Logging|Kermit    |(Yet implemented)
-|Network|Ktor      |(Yet implemented)
+| Libraries Used |            |
+|:---------------|:-----------|
+| Storage        | SQLDelight |
+| Logging        | Kermit     |(Yet implemented)
+| Network        | Ktor       |(Yet implemented)
 
 [//]: # (|Nav    |Native   |)
 
@@ -33,10 +36,11 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 
 ## Database Naming Convention
 
-|Database Naming Convention||
-|:-----------|:-------------|
-|Table    |UpperCamelCase(s)|
-|Column    |snake_case      |
+| Database Naming Convention |                   |
+|:---------------------------|:------------------|
+| Database Name              | lowerCamelCase    |
+| Table                      | UpperCamelCase(s) |
+| Column                     | snake_case        |
 
 [Back to Top](#overtime_calculator)
 

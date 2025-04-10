@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ui.viewmodels.HourAndMinute
+import kotlinx.datetime.LocalTime
 import ui.components.textBox.OcTimeText
 import ui.components.textBox.pickers.OcIconButton
 import ui.components.textBox.pickers.OcTimePicker
@@ -34,7 +34,7 @@ internal fun TimeRow(
         verticalAlignment = Alignment.CenterVertically){
         OcTimeText(
             title = title,
-            hourAndMinute = HourAndMinute(hour = hour, minute = minute),
+            hourAndMinute = LocalTime(hour = hour.toInt(), minute = minute.toInt()),
             modifier = modifier.weight(1f)
         )
 

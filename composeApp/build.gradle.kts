@@ -1,6 +1,8 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -13,6 +15,7 @@ plugins {
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -52,7 +55,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
 
             //Manual Added
-
             //Datetime
             implementation(libs.kotlinx.date.time)
 //            SQLDelight
@@ -65,6 +67,12 @@ kotlin {
 //            Navigation
             implementation(libs.navigation.compose)
             implementation(libs.navigation.runtime)
+        }
+//        Manuel Added
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.uiTest)
         }
         iosMain.dependencies {
             implementation(libs.native.driver)
@@ -82,6 +90,7 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     packaging {
         resources {
@@ -101,13 +110,16 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+//    Manual Added
+    androidTestImplementation(libs.androidx.ui.test.junit4.android)
+    debugImplementation(libs.ui.test.manifest)
 }
 
 //SQL-Delight Database
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("org.example.project")
+            packageName.set("data.database")
         }
     }
 }

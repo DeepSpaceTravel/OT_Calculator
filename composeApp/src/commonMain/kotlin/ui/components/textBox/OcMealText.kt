@@ -7,7 +7,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 
 @Composable
 internal fun OcMealText(mealCount: Byte,
-               modifier: Modifier) {
+               modifier: Modifier = Modifier) {
     Text(
         text = buildAnnotatedString {
             append("加班餐數：")

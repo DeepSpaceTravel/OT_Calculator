@@ -4,13 +4,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.buildAnnotatedString
-import ui.viewmodels.HourAndMinute
+import kotlinx.datetime.LocalTime
 
 @Composable
 internal fun OcTimeText(
     title: String,
-    hourAndMinute: HourAndMinute,
-    modifier: Modifier
+    hourAndMinute: LocalTime,
+    modifier: Modifier = Modifier
 ) {
 
     var hourStr = hourAndMinute.hour.toString()

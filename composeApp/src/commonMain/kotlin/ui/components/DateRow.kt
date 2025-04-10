@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.LocalDate
-import ui.components.textBox.ocDateText
+import ui.components.textBox.OcDateText
 import ui.components.textBox.pickers.OcDatePicker
 import ui.components.textBox.pickers.OcIconButton
 
@@ -32,7 +32,7 @@ internal fun DateRow(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        ocDateText(
+        OcDateText(
             selectedDate = selectedDate,
             modifier = modifier.weight(1f)
         )

@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberTimePickerState
@@ -15,9 +17,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
+import ot_calculator.composeapp.generated.resources.Res
+import ot_calculator.composeapp.generated.resources.check_in_time
+import ot_calculator.composeapp.generated.resources.check_out_time
 import ui.components.DateRow
 import ui.components.MealRow
 import ui.components.TimeRow
@@ -27,7 +31,7 @@ import ui.viewModels.CalculationViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CalculationScreen(
-    navController: NavHostController = rememberNavController()
+
 ) {
 
     val calculationViewModel: CalculationViewModel = koinViewModel<CalculationViewModel>()
@@ -63,9 +67,9 @@ fun CalculationScreen(
         )
 //       上班時間
         TimeRow(
-            hour = calculationUiState.checkInTime.hour,
-            minute = calculationUiState.checkInTime.minute,
-            title = "上班時間：",
+            hour = calculationUiState.checkInTime.hour.toByte(),
+            minute = calculationUiState.checkInTime.minute.toByte(),
+            title = stringResource(Res.string.check_in_time),
             onClickAction = { calculationViewModel.showCheckInTimePicker() },
             showTimePicker = calculationUiState.showCheckInTimePicker,
             cancelAction = { calculationViewModel.closeTimePicker() },
@@ -79,9 +83,9 @@ fun CalculationScreen(
         )
 //       下班時間
         TimeRow(
-            hour = calculationUiState.checkOutTime.hour,
-            minute = calculationUiState.checkOutTime.minute,
-            title = "下班時間：",
+            hour = calculationUiState.checkOutTime.hour.toByte(),
+            minute = calculationUiState.checkOutTime.minute.toByte(),
+            title = stringResource(Res.string.check_out_time),
             onClickAction = { calculationViewModel.showCheckOutTimePicker() },
             showTimePicker = calculationUiState.showCheckOutTimePicker,
             cancelAction = { calculationViewModel.closeTimePicker() },
@@ -104,6 +108,10 @@ fun CalculationScreen(
             mealCount = calculationUiState.mealCount,
             modifier = modifier
         )
+        HorizontalDivider()
+        Text("Working Length: ")
+        Text("Total:")
+
         Button(
             onClick = {},
             modifier = modifier.fillMaxWidth()

@@ -19,6 +19,9 @@ kotlin = "2.1.0"
 #Android Dependency
 androidx-splashScreen = "1.2.0-alpha02"
 
+#Android testing
+androidComposeUiTest = "1.7.7"
+
 #Multipaltform dependency
 koin = "4.1.0-Beta5"
 dateTime = "0.6.0"
@@ -41,6 +44,9 @@ androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle
 
 #Manual added
 androidx-splashscreen = {group = "androidx.core", name = "core-splashscreen", version.ref = "androidx-splashScreen"}
+#Testing
+androidx-ui-test-junit4-android = { group = "androidx.compose.ui", name = "ui-test-junit4-android", version.ref = "androidComposeUiTest" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "androidComposeUiTest" }
 
 #DateTime
 kotlinx-date-time = {group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "dateTime"}
