@@ -7,26 +7,33 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 
 [//]: # (Also, to make my life easier.)
 
-[Back to Top](#overtime_calculator)
+[Back to Top]
 
-#
+[//]: # (Pictures)
+## Screenshots
 ![App-Screenshot]
 
-[App-Screenshot]: ./readme.d/app-screenshot.png
+[//]: # (Path to pictures)
+[App-Screenshot]: ./readme.d/App-Screenshot.png
 
-## If things go sideways:
-type `./gradlew cleanBuildCache`
+[//]: # (## If things go sideways:)
+[//]: # (type `./gradlew cleanBuildCache`)
 
 ## Roadmap
-- [ ] Learn how to use the navigation library
-- [ ] Make sense of Koin
-- [ ] Learn how to manipulate the Database
-- [ ] Learn how to insert an entry
-- [ ] Read the entries from the Database and display them using LazyColumn
-- [ ] A properly working prototype
-- [ ] Log-in using OAuth2
+- [🔧] Learn how to use the navigation library
+- [🔧] Make sense of Koin
+- [🔧] Learn how to manipulate the Database
+- [🔧] Learn how to insert an entry
+- [🔧] Read the entries from the Database and display them using LazyColumn
+- [🔧] A properly working prototype
+- [📝] Log-in using OAuth2
 
-[Back to Top](#overtime_calculator)
+| Emoji | Meaning |
+|:------|:--------|
+| 🔧    | Working |
+| 📝    | Planned |
+
+[Back to Top]
 
 ## Libraries Used
 | Libraries Used |            |
@@ -37,7 +44,7 @@ type `./gradlew cleanBuildCache`
 
 [//]: # (|Nav    |Native   |)
 
-[Back to Top](#overtime_calculator)
+[Back to Top]
 
 ## Database Naming Convention
 
@@ -47,7 +54,7 @@ type `./gradlew cleanBuildCache`
 | Table                      | UpperCamelCase(s) |
 | Column                     | snake_case        |
 
-[Back to Top](#overtime_calculator)
+[Back to Top]
 
 ## Notable examples I visit 
 - [People In Space by Koreilly](https://github.com/joreilly/PeopleInSpace/)
@@ -70,3 +77,5 @@ type `./gradlew cleanBuildCache`
 
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
+[Back to Top]: #OT_Calculator
