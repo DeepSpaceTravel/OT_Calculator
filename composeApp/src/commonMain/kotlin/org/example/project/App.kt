@@ -26,6 +26,8 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinApplication
 import org.koin.compose.KoinMultiplatformApplication
+import org.koin.core.annotation.KoinExperimentalAPI
+import org.koin.dsl.KoinConfiguration
 import ot_calculator.composeapp.generated.resources.Res
 import ot_calculator.composeapp.generated.resources.compose_multiplatform
 import ui.components.TopBar
@@ -33,19 +35,20 @@ import ui.navigation.Routes
 import ui.screens.CalculationScreen
 import ui.screens.EntryListScreen
 
+@OptIn(KoinExperimentalAPI::class)
 @Composable
 @Preview
 fun App(
     navController: NavHostController = rememberNavController()
 ) {
-    KoinApplication(
-        application = {
+    KoinMultiplatformApplication(
+        config = KoinConfiguration {
             modules(
-//                platformModule(),
+                platformModule(),
                 commonModule()
             )
         }
-    ) {
+    ){
         AppTheme {
             Surface(
                 modifier = Modifier.fillMaxSize()
