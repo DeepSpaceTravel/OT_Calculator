@@ -9,6 +9,11 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 
 [Back to Top](#overtime_calculator)
 
+#
+![App-Screenshot]
+
+[App-Screenshot]: ./readme.d/app-screenshot.png
+
 ## If things go sideways:
 type `./gradlew cleanBuildCache`
 
