@@ -4,6 +4,7 @@ import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TimePickerState
 import androidx.lifecycle.ViewModel
+import data.repo.OvertimeInfoRepo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,7 +16,7 @@ import kotlinx.datetime.toLocalDateTime
 
 @OptIn(ExperimentalMaterial3Api::class)
 class CalculationViewModel(
-//    private val overtimeInfoRepo: OvertimeInfoRepo
+    private val overtimeInfoRepo: OvertimeInfoRepo
 ): ViewModel(){
 
     private val _uiState = MutableStateFlow(CalculationUiState())
@@ -26,7 +27,8 @@ class CalculationViewModel(
     }
 
     private fun getAllInfo() {
-//        println(overtimeInfoRepo.getLocalData().toString())
+        print("All Info: ")
+        println(overtimeInfoRepo.getLocalData().toString())
     }
 
     fun showDatePicker() {

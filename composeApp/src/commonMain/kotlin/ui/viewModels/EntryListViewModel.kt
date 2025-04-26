@@ -1,12 +1,13 @@
 package ui.viewModels
 
 import androidx.lifecycle.ViewModel
+import data.repo.OvertimeInfoRepo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class EntryListViewModel(
-//    private val overtimeInfoRepo: OvertimeInfoRepo
+    private val overtimeInfoRepo: OvertimeInfoRepo
 ): ViewModel() {
 
     private val _uiState = MutableStateFlow(EntryListUiState())

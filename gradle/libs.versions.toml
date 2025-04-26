@@ -20,7 +20,7 @@ kotlin = "2.1.0"
 androidx-splashScreen = "1.2.0-beta01"
 
 #Android testing
-androidComposeUiTest = "1.7.8"
+androidComposeUiTest = "1.8.0"
 
 #Multipaltform dependency
 koin = "4.1.0-Beta7"
