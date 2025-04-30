@@ -12,6 +12,8 @@ data class CalculationUiState(
     val checkOutTime: LocalTime = LocalTime(hour = 17, minute = 15),
     val mealCount: Byte = 0,
     val multiplier: Float = 1.5f,
+//    val hourlyRate: Float = 1.0f,
+//    val normalWorkingLength: Float = 8.0f,
     val showDatePicker: Boolean = false,
     val showCheckInTimePicker: Boolean = false,
     val showCheckOutTimePicker: Boolean = false,

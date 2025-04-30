@@ -17,7 +17,7 @@ kotlin = "2.1.0"
 
 #Manual added
 #Android Dependency
-androidx-splashScreen = "1.2.0-beta01"
+androidx-splashScreen = "1.2.0-beta02"
 
 #Android testing
 androidComposeUiTest = "1.8.0"
@@ -59,6 +59,7 @@ navigation-runtime = { group = "org.jetbrains.androidx.navigation", name = "navi
 android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 
 #Koin
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }

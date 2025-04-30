@@ -10,4 +10,10 @@ class OvertimeInfoRepo(
     override fun getLocalData(): List<OvertimeInfo> {
         return localDatabase.getAllInfo()
     }
+
+    override fun insertAnEntryToLocalDatabase(overtimeInfo: OvertimeInfo): Unit {
+        localDatabase.insertOcDate(overtimeInfo)
+    }
+
+    
 }
