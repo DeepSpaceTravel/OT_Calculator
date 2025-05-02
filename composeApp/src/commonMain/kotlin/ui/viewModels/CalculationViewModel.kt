@@ -25,6 +25,7 @@ class CalculationViewModel(
 
     init {
         getAllInfo()
+        checkIfDateExistsAlready(uiState.value.ocDate.toString())
     }
 
     private fun getAllInfo() {
@@ -32,8 +33,16 @@ class CalculationViewModel(
         println(overtimeInfoRepo.getLocalData().toString())
     }
 
-    private fun insertAnEntry() {
-        overtimeInfoRepo.insertAnEntryToLocalDatabase(overtimeInfo)
+    fun insertAnEntry() {
+        overtimeInfoRepo.insertAnEntryToLocalDatabase(
+            overtimeDate = uiState.value.ocDate.toString(),
+            checkInTime = uiState.value.checkInTime.toString(),
+            checkOutTime = uiState.value.checkOutTime.toString(),
+            mealCount = uiState.value.mealCount.toLong(),
+            multiplier = uiState.value.multiplier.toDouble(),
+            hourlyRate = uiState.value.hourlyRate.toDouble(),
+            normalWorkingLength = uiState.value.normalWorkingLength.toDouble()
+        )
     }
 
     fun showDatePicker() {
@@ -41,13 +50,14 @@ class CalculationViewModel(
     }
 
     fun selectDate(datePickerState: DatePickerState) {
-        _uiState.update { it
-            .copy(ocDate = Instant
-                .fromEpochMilliseconds(datePickerState.selectedDateMillis!!)
-                .toLocalDateTime(
-                    TimeZone.currentSystemDefault())
-                .date
-            )
+        val currentDate = Instant
+            .fromEpochMilliseconds(datePickerState.selectedDateMillis!!)
+            .toLocalDateTime(
+                TimeZone.currentSystemDefault())
+            .date
+        _uiState.update { it.copy(
+            dayAlreadyExists = overtimeInfoRepo.checkIfDateExistsAlready(currentDate.toString()),
+            ocDate = currentDate)
         }
     }
 
@@ -85,5 +95,20 @@ class CalculationViewModel(
 
     fun closeMealPicker() {
         _uiState.update { it.copy(showMealPicker = false) }
+    }
+
+    private fun checkIfDateExistsAlready(overtimeDate: String) {
+        _uiState.update {
+            it.copy(dayAlreadyExists = overtimeInfoRepo.checkIfDateExistsAlready(uiState.value.ocDate.toString()))
+        }
+    }
+
+    fun showAlreadyAddedDialog() {
+        _uiState.update { it.copy(showAlreadyAddedDialog = true) }
+    }
+
+    fun closeAlreadyAddedDialog() {
+        _uiState.update { it.copy(showAlreadyAddedDialog = false) }
+
     }
 }

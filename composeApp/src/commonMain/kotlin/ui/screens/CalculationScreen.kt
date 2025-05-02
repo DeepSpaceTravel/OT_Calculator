@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -49,9 +50,7 @@ fun CalculationScreen(
             .padding(basicPadding)
     ) {
         //TODO: Fix this bloody padding thing
-        Column {
-            Row {  }
-        }
+
         DateRow(
             selectedDate = calculationUiState.ocDate,
             onClickAction = { calculationViewModel.showDatePicker() },
@@ -113,10 +112,42 @@ fun CalculationScreen(
         Text("Total:")
 
         Button(
-            onClick = {},
+            onClick = {
+                println("dayAlreadyExists is : ${calculationUiState.dayAlreadyExists}")
+                if (calculationUiState.dayAlreadyExists){
+                    calculationViewModel.showAlreadyAddedDialog()
+                }
+                else {
+                    calculationViewModel.insertAnEntry()
+                }
+                      },
             modifier = modifier.fillMaxWidth()
         ){
             Text("Submit")
         }
     }
+
+    if (calculationUiState.showAlreadyAddedDialog){
+        AlreadyAddedDialog(
+            onDismissRequest = { calculationViewModel.closeAlreadyAddedDialog() },
+            onConfirm = { calculationViewModel.closeAlreadyAddedDialog() }
+        )
+    }
+}
+
+@Composable
+private fun AlreadyAddedDialog(
+    onDismissRequest: () -> Unit,
+    onConfirm: () -> Unit
+){
+    AlertDialog(
+        onDismissRequest,
+        confirmButton = {
+            Button(onClick = onConfirm){
+                Text("OK")
+            }
+        },
+        title = { Text("Already added") },
+        text = { Text("Bro you already added this date") }
+    )
 }

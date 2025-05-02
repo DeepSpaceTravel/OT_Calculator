@@ -1,6 +1,7 @@
 -- ISO 8601 compliant
 CREATE TABLE OvertimeInfo (
     deleted INTEGER NOT NULL,
+--     This is the primary key. Deshalb, you can't have more than 1 entry for a day.
     overtime_date TEXT PRIMARY KEY NOT NULL,
     check_in_time TEXT NOT NULL,
     check_out_time TEXT NOT NULL,
@@ -18,10 +19,18 @@ selectAllDates:
 SELECT *
 FROM OvertimeInfo;
 
+-- Checking
+checkIfDateExistsAlready:
+SELECT CASE WHEN EXISTS (
+    SELECT overtime_date
+    FROM OvertimeInfo
+    WHERE overtime_date = :overtime_date
+) THEN 'true' ELSE 'false' END AS does_exist;
+
 -- Insertions
 insertOcDate:
 INSERT INTO OvertimeInfo(deleted, overtime_date, check_in_time, check_out_time, meal_count, multiplier, hourly_rate, normal_working_length)
-VALUES (deleted = 0, :overtime_date, :check_in_time, :check_out_time, :meal_count, :multiplier, :hourly_rate, :normal_working_length);
+VALUES (0, :overtime_date, :check_in_time, :check_out_time, :meal_count, :multiplier, :hourly_rate, :normal_working_length);
 
 -- Deletions
 removeAllEntries:

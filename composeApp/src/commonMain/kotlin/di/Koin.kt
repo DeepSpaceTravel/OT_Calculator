@@ -1,13 +1,10 @@
 package di
 
-import data.database.DatabaseDriverFactory
 import data.database.LocalDatabase
 import data.repo.OvertimeInfoRepo
 import data.repo.OvertimeInfoRepoIface
 import org.koin.core.module.Module
-import org.koin.core.module.dsl.viewModel
 import org.koin.core.module.dsl.viewModelOf
-import org.koin.dsl.bind
 import org.koin.dsl.module
 import ui.viewModels.CalculationViewModel
 import ui.viewModels.EntryListViewModel

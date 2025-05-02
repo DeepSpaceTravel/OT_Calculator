@@ -9,16 +9,28 @@ class LocalDatabase(driverFactory: DatabaseDriverFactory) {
     }
 
     fun insertOcDate(
-        overtimeInfo: OvertimeInfo
+        overtime_date: String,
+        check_in_time: String,
+        check_out_time: String,
+        meal_count: Long?,
+        multiplier: Double,
+        hourly_rate: Double,
+        normal_working_length: Double
     ): Unit {
         dbQuery.insertOcDate(
-            overtime_date = overtimeInfo.overtime_date,
-            check_in_time = overtimeInfo.check_in_time,
-            check_out_time = overtimeInfo.check_out_time,
-            meal_count = overtimeInfo.meal_count,
-            multiplier = overtimeInfo.multiplier,
-            hourly_rate = overtimeInfo.hourly_rate,
-            normal_working_length = overtimeInfo.normal_working_length
+            overtime_date,
+            check_in_time,
+            check_out_time,
+            meal_count,
+            multiplier,
+            hourly_rate,
+            normal_working_length
         )
+    }
+
+    fun checkIfDateExistsInLocalDatabase(overtime_date: String): Boolean {
+        val dbReturnValue = dbQuery.checkIfDateExistsAlready(overtime_date).executeAsOne()
+        println("dbReturnValue is: $dbReturnValue")
+        return dbReturnValue == "true"
     }
 }

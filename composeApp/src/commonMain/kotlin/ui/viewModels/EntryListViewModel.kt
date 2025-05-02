@@ -5,6 +5,7 @@ import data.repo.OvertimeInfoRepo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class EntryListViewModel(
     private val overtimeInfoRepo: OvertimeInfoRepo
@@ -13,5 +14,11 @@ class EntryListViewModel(
     private val _uiState = MutableStateFlow(EntryListUiState())
     val uiState: StateFlow<EntryListUiState> = _uiState.asStateFlow()
 
+    init {
+        getAllInfo()
+    }
 
+    private fun getAllInfo() {
+        _uiState.update { it.copy(entryList = overtimeInfoRepo.getLocalData()) }
+    }
 }

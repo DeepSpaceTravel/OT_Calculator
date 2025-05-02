@@ -6,6 +6,14 @@ interface OvertimeInfoRepoIface {
 
     fun getLocalData(): List<OvertimeInfo>
 
-    fun insertAnEntryToLocalDatabase(overtimeInfo: OvertimeInfo): Unit
+    fun insertAnEntryToLocalDatabase(
+        overtimeDate: String,
+        checkInTime: String,
+        checkOutTime: String,
+        mealCount: Long?,
+        multiplier: Double,
+        hourlyRate: Double,
+        normalWorkingLength: Double
+    ): Unit
 
 }
