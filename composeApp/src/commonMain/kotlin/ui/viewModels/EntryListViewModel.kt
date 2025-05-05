@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.datetime.LocalDate
 
 class EntryListViewModel(
     private val overtimeInfoRepo: OvertimeInfoRepo
@@ -19,6 +20,6 @@ class EntryListViewModel(
     }
 
     private fun getAllInfo() {
-        _uiState.update { it.copy(entryList = overtimeInfoRepo.getLocalData()) }
+        _uiState.update { it.copy(entryList = overtimeInfoRepo.getLocalData().sortedWith(compareBy { LocalDate.parse(it.overtime_date) }).reversed()) }
     }
 }

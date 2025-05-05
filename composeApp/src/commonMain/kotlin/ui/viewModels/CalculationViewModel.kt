@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -24,13 +26,7 @@ class CalculationViewModel(
     val uiState: StateFlow<CalculationUiState> = _uiState.asStateFlow()
 
     init {
-        getAllInfo()
         checkIfDateExistsAlready(uiState.value.ocDate.toString())
-    }
-
-    private fun getAllInfo() {
-        print("All Info: ")
-        println(overtimeInfoRepo.getLocalData().toString())
     }
 
     fun insertAnEntry() {

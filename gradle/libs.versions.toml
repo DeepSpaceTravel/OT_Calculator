@@ -23,7 +23,7 @@ androidx-splashScreen = "1.2.0-beta02"
 androidComposeUiTest = "1.8.0"
 
 #Multipaltform dependency
-koin = "4.1.0-Beta7"
+koin = "4.1.0-Beta8"
 dateTime = "0.6.0"
 sqlDelight = "2.0.2"
 navigationCompose = "2.8.0-alpha11"
