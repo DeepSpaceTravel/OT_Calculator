@@ -1,6 +1,7 @@
 package di
 
 import data.database.LocalDatabase
+import data.datastore.LocalDataStore
 import data.repo.OvertimeInfoRepo
 import data.repo.OvertimeInfoRepoIface
 import org.koin.core.module.Module
@@ -25,6 +26,10 @@ private val repoModule = module {
 //    single { OvertimeInfoRepo(get()) }.bind<OvertimeInfoRepoIface>()
 }
 
+private val dataStoreModule = module {
+    single { LocalDataStore(get()) }
+}
+
 /*
 Due to the loading order of Koin (or just the programming language itself),
 the Module with `includes()` must be at the last order of the loading order.
@@ -33,6 +38,7 @@ fun commonModule() = module {
 
     includes(
         //The following order is SPECIFIC and CAN"T BE CHANGED
+        dataStoreModule,
         repoModule,
         viewModelModule
     )

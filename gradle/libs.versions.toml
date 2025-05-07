@@ -24,6 +24,7 @@ androidComposeUiTest = "1.8.0"
 
 #Multipaltform dependency
 koin = "4.1.0-Beta8"
+dataStore = "1.1.5"
 dateTime = "0.6.2"
 sqlDelight = "2.0.2"
 navigationCompose = "2.9.0-alpha17"
@@ -47,6 +48,10 @@ androidx-splashscreen = {group = "androidx.core", name = "core-splashscreen", ve
 #Testing
 androidx-ui-test-junit4-android = { group = "androidx.compose.ui", name = "ui-test-junit4-android", version.ref = "androidComposeUiTest" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "androidComposeUiTest" }
+
+#DataStore
+datastore = { group = "androidx.datastore", name = "datastore", version.ref = "dataStore" }
+datastore-preferences-core = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "dataStore" }
 
 #DateTime
 kotlinx-date-time = {group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "dateTime"}

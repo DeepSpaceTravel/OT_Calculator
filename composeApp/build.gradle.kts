@@ -68,6 +68,8 @@ kotlin {
 //            Navigation
             implementation(libs.navigation.compose)
             implementation(libs.navigation.runtime)
+//            DataStore
+            api(libs.datastore.preferences.core)
         }
 //        Manuel Added
         commonTest.dependencies {
