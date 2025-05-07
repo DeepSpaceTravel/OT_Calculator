@@ -15,7 +15,8 @@ class LocalDatabase(driverFactory: DatabaseDriverFactory) {
         meal_count: Long?,
         multiplier: Double,
         hourly_rate: Double,
-        normal_working_length: Double
+        normal_working_length: Double,
+        overtime_pay: Double,
     ): Unit {
         dbQuery.insertOcDate(
             overtime_date,
@@ -24,13 +25,13 @@ class LocalDatabase(driverFactory: DatabaseDriverFactory) {
             meal_count,
             multiplier,
             hourly_rate,
-            normal_working_length
+            normal_working_length,
+            overtime_pay,
         )
     }
 
     fun checkIfDateExistsInLocalDatabase(overtime_date: String): Boolean {
         val dbReturnValue = dbQuery.checkIfDateExistsAlready(overtime_date).executeAsOne()
-        println("dbReturnValue is: $dbReturnValue")
         return dbReturnValue == "true"
     }
 }

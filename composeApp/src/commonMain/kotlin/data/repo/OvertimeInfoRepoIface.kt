@@ -13,7 +13,8 @@ interface OvertimeInfoRepoIface {
         mealCount: Long?,
         multiplier: Double,
         hourlyRate: Double,
-        normalWorkingLength: Double
+        normalWorkingLength: Double,
+        overtimePay: Double
     ): Unit
 
 }

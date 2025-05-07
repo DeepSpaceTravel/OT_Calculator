@@ -8,8 +8,8 @@ CREATE TABLE OvertimeInfo (
     meal_count INTEGER,
     multiplier REAL NOT NULL,
     hourly_rate REAL NOT NULL,
-    normal_working_length REAL NOT NULL
---     overtime_pay INTEGER NOT NULL
+    normal_working_length REAL NOT NULL,
+    overtime_pay REAL NOT NULL
 );
 
 CREATE INDEX OvertimeInfo_overtime_date ON OvertimeInfo(overtime_date);
@@ -17,7 +17,8 @@ CREATE INDEX OvertimeInfo_overtime_date ON OvertimeInfo(overtime_date);
 -- Queries
 selectAllDates:
 SELECT *
-FROM OvertimeInfo;
+FROM OvertimeInfo
+WHERE deleted = '0';
 
 -- Checking
 checkIfDateExistsAlready:
@@ -29,8 +30,8 @@ SELECT CASE WHEN EXISTS (
 
 -- Insertions
 insertOcDate:
-INSERT INTO OvertimeInfo(deleted, overtime_date, check_in_time, check_out_time, meal_count, multiplier, hourly_rate, normal_working_length)
-VALUES (0, :overtime_date, :check_in_time, :check_out_time, :meal_count, :multiplier, :hourly_rate, :normal_working_length);
+INSERT INTO OvertimeInfo(deleted, overtime_date, check_in_time, check_out_time, meal_count, multiplier, hourly_rate, normal_working_length, overtime_pay)
+VALUES (0, :overtime_date, :check_in_time, :check_out_time, :meal_count, :multiplier, :hourly_rate, :normal_working_length, :overtime_pay);
 
 -- Deletions
 removeAllEntries:

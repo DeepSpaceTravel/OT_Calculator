@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.2"
+agp = "8.10.0"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
@@ -8,7 +8,7 @@ androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.2.1"
 androidx-core-ktx = "1.16.0"
 androidx-espresso-core = "3.6.1"
-androidx-lifecycle = "2.8.4"
+androidx-lifecycle = "2.8.7"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose-multiplatform = "1.7.0"
@@ -24,9 +24,9 @@ androidComposeUiTest = "1.8.0"
 
 #Multipaltform dependency
 koin = "4.1.0-Beta8"
-dateTime = "0.6.0"
+dateTime = "0.6.2"
 sqlDelight = "2.0.2"
-navigationCompose = "2.8.0-alpha11"
+navigationCompose = "2.9.0-alpha17"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

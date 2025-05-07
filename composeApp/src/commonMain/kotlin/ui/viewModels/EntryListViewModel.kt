@@ -20,6 +20,6 @@ class EntryListViewModel(
     }
 
     private fun getAllInfo() {
-        _uiState.update { it.copy(entryList = overtimeInfoRepo.getLocalData().sortedWith(compareBy { LocalDate.parse(it.overtime_date) }).reversed()) }
+        _uiState.update { it.copy(entryList = overtimeInfoRepo.getLocalData().sortedWith(compareBy { overtimeInfo -> LocalDate.parse(overtimeInfo.overtime_date) }).reversed()) }
     }
 }

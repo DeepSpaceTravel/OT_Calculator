@@ -14,11 +14,13 @@ data class CalculationUiState(
     val multiplier: Float = 1.5f,
     val hourlyRate: Float = 1.0f,
     val normalWorkingLength: Float = 8.0f,
+    val overtimePay: Float = 0f,
     val dayAlreadyExists: Boolean = false,
     val showDatePicker: Boolean = false,
     val showCheckInTimePicker: Boolean = false,
     val showCheckOutTimePicker: Boolean = false,
     val showMealPicker: Boolean = false,
     val showAlreadyAddedDialog: Boolean = false,
+
 
 )

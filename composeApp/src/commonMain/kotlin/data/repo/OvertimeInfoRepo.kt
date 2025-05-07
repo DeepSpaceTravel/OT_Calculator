@@ -18,7 +18,8 @@ class OvertimeInfoRepo(
         mealCount: Long?,
         multiplier: Double,
         hourlyRate: Double,
-        normalWorkingLength: Double){
+        normalWorkingLength: Double,
+        overtimePay: Double){
         localDatabase.insertOcDate(
             overtime_date = overtimeDate,
             check_in_time = checkInTime,
@@ -26,7 +27,8 @@ class OvertimeInfoRepo(
             meal_count = mealCount,
             multiplier = multiplier,
             hourly_rate = hourlyRate,
-            normal_working_length = normalWorkingLength
+            normal_working_length = normalWorkingLength,
+            overtime_pay = overtimePay
         )
     }
 

@@ -37,7 +37,8 @@ class CalculationViewModel(
             mealCount = uiState.value.mealCount.toLong(),
             multiplier = uiState.value.multiplier.toDouble(),
             hourlyRate = uiState.value.hourlyRate.toDouble(),
-            normalWorkingLength = uiState.value.normalWorkingLength.toDouble()
+            normalWorkingLength = uiState.value.normalWorkingLength.toDouble(),
+            overtimePay = uiState.value.overtimePay.toDouble(),
         )
     }
 

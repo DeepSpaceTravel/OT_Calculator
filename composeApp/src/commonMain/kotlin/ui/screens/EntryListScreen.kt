@@ -50,6 +50,7 @@ fun EntryListScreen(
                     checkInTime = LocalTime.parse(entry.check_in_time),
                     checkOutTime = LocalTime.parse(entry.check_out_time),
                     mealCount = entry.meal_count!!.toByte(),
+                    overtimePay = entry.overtime_pay,
                     modifier = modifier
                 )
             }
@@ -70,6 +71,7 @@ private fun EntryCard(
     checkInTime: LocalTime,
     checkOutTime: LocalTime,
     mealCount: Byte,
+    overtimePay: Double,
     modifier: Modifier = Modifier
 ){
     Card(
@@ -113,7 +115,7 @@ private fun EntryCard(
                 )
 //                Figure
                 Text(
-                    text = "Figure"
+                    text = overtimePay.toString()
                 )
             }
         }
