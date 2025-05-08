@@ -60,6 +60,8 @@ kotlin {
 //            SQLDelight
             implementation(libs.runtime)
             implementation(libs.sqldelight.coroutines.extensions)
+//            Kermit
+            implementation(libs.kermit)
 //            Koin
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
@@ -69,8 +71,7 @@ kotlin {
             implementation(libs.navigation.compose)
             implementation(libs.navigation.runtime)
 //            DataStore
-//            implementation(libs.datastore)
-            implementation(libs.datastore.preferences)
+            implementation(libs.datastore.preferences.core)
         }
 //        Manuel Added
         commonTest.dependencies {

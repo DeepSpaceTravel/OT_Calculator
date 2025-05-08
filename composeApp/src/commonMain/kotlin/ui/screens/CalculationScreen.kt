@@ -1,13 +1,11 @@
 package ui.screens
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
@@ -20,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDate
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import ot_calculator.composeapp.generated.resources.Res
@@ -30,8 +27,6 @@ import ui.components.DateRow
 import ui.components.MealRow
 import ui.components.TimeRow
 import ui.viewModels.CalculationViewModel
-import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.DurationUnit
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,7 +38,7 @@ fun CalculationScreen(
     val calculationViewModel: CalculationViewModel = koinViewModel<CalculationViewModel>()
     val calculationUiState by calculationViewModel.uiState.collectAsState()
 
-    val datePickerState = rememberDatePickerState(initialSelectedDateMillis = Clock.System.now().epochSeconds*1000L)
+    val datePickerState = rememberDatePickerState(initialSelectedDateMillis = Instant.fromEpochSeconds(calculationUiState.ocDate.toEpochDays().toLong()*86400L).toEpochMilliseconds())
     val checkInTimePickerState = rememberTimePickerState(initialHour = calculationUiState.checkInTime.hour, initialMinute = calculationUiState.checkInTime.minute)
     val checkOutTimePickerState = rememberTimePickerState(initialHour = calculationUiState.checkOutTime.hour, initialMinute = calculationUiState.checkOutTime.minute)
 
@@ -54,8 +49,6 @@ fun CalculationScreen(
             .fillMaxSize()
             .padding(basicPadding)
     ) {
-        //TODO: Fix this bloody padding thing
-
         DateRow(
             selectedDate = calculationUiState.ocDate,
             onClickAction = { calculationViewModel.showDatePicker() },

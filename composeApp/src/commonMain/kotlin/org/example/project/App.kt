@@ -1,35 +1,29 @@
 package org.example.project
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import co.touchlab.kermit.Logger
 import com.example.project.AppTheme
 import di.commonModule
 import di.platformModule
-import org.jetbrains.compose.resources.painterResource
+import logging.initLogger
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import org.koin.compose.KoinApplication
 import org.koin.compose.KoinMultiplatformApplication
 import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.dsl.KoinConfiguration
-import ot_calculator.composeapp.generated.resources.Res
-import ot_calculator.composeapp.generated.resources.compose_multiplatform
 import ui.components.TopBar
 import ui.navigation.Routes
 import ui.screens.CalculationScreen
@@ -41,6 +35,7 @@ import ui.screens.EntryListScreen
 fun App(
     navController: NavHostController = rememberNavController()
 ) {
+    initLogger()
     KoinMultiplatformApplication(
         config = KoinConfiguration {
             modules(
@@ -49,6 +44,7 @@ fun App(
             )
         }
     ){
+        Logger.i { "Koin initialized" }
         AppTheme {
             Surface(
                 modifier = Modifier.fillMaxSize()

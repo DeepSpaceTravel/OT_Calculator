@@ -1,4 +1,11 @@
 package data.repo
 
-class SettingsRepo {
+import data.datastore.LocalDataStore
+
+class SettingsRepo(private val localSettings: LocalDataStore) {
+
+    fun loadSettings() {
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package data.repo
 
+import co.touchlab.kermit.Logger
 import data.database.LocalDatabase
 import data.database.OvertimeInfo
 
@@ -33,6 +34,10 @@ class OvertimeInfoRepo(
     }
 
     fun checkIfDateExistsAlready(overtimeDate: String): Boolean {
-        return localDatabase.checkIfDateExistsInLocalDatabase(overtime_date = overtimeDate)
+        Logger.i{"[INFO]: Checking if date already exists in local database"}
+        Logger.d{ "[DEBUG]: Checking if \"$overtimeDate\" exists in local database"}
+        val result = localDatabase.checkIfDateExistsInLocalDatabase(overtime_date = overtimeDate)
+        Logger.i{ "[INFO]: Result of check: $result" }
+        return result
     }
 }

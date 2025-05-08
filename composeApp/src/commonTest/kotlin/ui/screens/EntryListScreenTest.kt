@@ -2,10 +2,9 @@ package ui.screens
 
 import androidx.compose.material3.Text
 import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.runComposeUiTest
-import androidx.compose.ui.test.*
-import data.database.OvertimeInfo
 import kotlin.test.Test
 
 class EntryListScreenTest {
