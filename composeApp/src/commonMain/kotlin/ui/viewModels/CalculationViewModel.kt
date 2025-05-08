@@ -26,20 +26,25 @@ class CalculationViewModel(
     val uiState: StateFlow<CalculationUiState> = _uiState.asStateFlow()
 
     init {
-        checkIfDateExistsAlready(uiState.value.ocDate.toString())
+        _uiState.update { it.copy(dayAlreadyExists = checkIfSelectedDateExists()) }
     }
 
     fun insertAnEntry() {
-        overtimeInfoRepo.insertAnEntryToLocalDatabase(
-            overtimeDate = uiState.value.ocDate.toString(),
-            checkInTime = uiState.value.checkInTime.toString(),
-            checkOutTime = uiState.value.checkOutTime.toString(),
-            mealCount = uiState.value.mealCount.toLong(),
-            multiplier = uiState.value.multiplier.toDouble(),
-            hourlyRate = uiState.value.hourlyRate.toDouble(),
-            normalWorkingLength = uiState.value.normalWorkingLength.toDouble(),
-            overtimePay = uiState.value.overtimePay.toDouble(),
-        )
+        if (!checkIfSelectedDateExists()) {
+            overtimeInfoRepo.insertAnEntryToLocalDatabase(
+                overtimeDate = uiState.value.ocDate.toString(),
+                checkInTime = uiState.value.checkInTime.toString(),
+                checkOutTime = uiState.value.checkOutTime.toString(),
+                mealCount = uiState.value.mealCount.toLong(),
+                multiplier = uiState.value.multiplier.toDouble(),
+                hourlyRate = uiState.value.hourlyRate.toDouble(),
+                normalWorkingLength = uiState.value.normalWorkingLength.toDouble(),
+                overtimePay = uiState.value.overtimePay.toDouble(),
+            )
+        }
+        else{
+            _uiState.update { it.copy(showAlreadyAddedDialog = true) }
+        }
     }
 
     fun showDatePicker() {
@@ -50,11 +55,14 @@ class CalculationViewModel(
         val currentDate = Instant
             .fromEpochMilliseconds(datePickerState.selectedDateMillis!!)
             .toLocalDateTime(
-                TimeZone.currentSystemDefault())
-            .date
-        _uiState.update { it.copy(
-            dayAlreadyExists = overtimeInfoRepo.checkIfDateExistsAlready(currentDate.toString()),
-            ocDate = currentDate)
+                TimeZone.currentSystemDefault()
+                )
+                .date
+        _uiState.update {
+            it.copy(
+                dayAlreadyExists = overtimeInfoRepo.checkIfDateExistsAlready(currentDate.toString()),
+                ocDate = currentDate
+            )
         }
     }
 
@@ -94,10 +102,8 @@ class CalculationViewModel(
         _uiState.update { it.copy(showMealPicker = false) }
     }
 
-    private fun checkIfDateExistsAlready(overtimeDate: String) {
-        _uiState.update {
-            it.copy(dayAlreadyExists = overtimeInfoRepo.checkIfDateExistsAlready(uiState.value.ocDate.toString()))
-        }
+    private fun checkIfSelectedDateExists(): Boolean {
+        return overtimeInfoRepo.checkIfDateExistsAlready(uiState.value.ocDate.toString())
     }
 
     fun showAlreadyAddedDialog() {

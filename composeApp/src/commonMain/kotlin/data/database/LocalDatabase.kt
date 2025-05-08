@@ -31,7 +31,6 @@ class LocalDatabase(driverFactory: DatabaseDriverFactory) {
     }
 
     fun checkIfDateExistsInLocalDatabase(overtime_date: String): Boolean {
-        val dbReturnValue = dbQuery.checkIfDateExistsAlready(overtime_date).executeAsOne()
-        return dbReturnValue == "true"
+        return dbQuery.checkIfDateExistsAlready(overtime_date).executeAsOne() == "true"
     }
 }

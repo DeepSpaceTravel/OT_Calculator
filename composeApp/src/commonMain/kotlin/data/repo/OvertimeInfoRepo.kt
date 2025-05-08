@@ -33,7 +33,6 @@ class OvertimeInfoRepo(
     }
 
     fun checkIfDateExistsAlready(overtimeDate: String): Boolean {
-        val returnValue = localDatabase.checkIfDateExistsInLocalDatabase(overtime_date = overtimeDate)
-        return returnValue
+        return localDatabase.checkIfDateExistsInLocalDatabase(overtime_date = overtimeDate)
     }
 }

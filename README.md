@@ -18,6 +18,7 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 
 [//]: # (## If things go sideways:)
 [//]: # (type `./gradlew cleanBuildCache`)
+[//]: # (type `rm -r ~/.gradle/caches/`)
 
 ## Roadmap
 - [🔧] Learn how to use the navigation library
