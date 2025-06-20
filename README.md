@@ -58,9 +58,10 @@ The aim for this project is to teach myself how to build a multiplatform app tha
 [Back to Top]
 
 ## Notable examples I visit 
+- [Create a multiplatform app using Ktor and SQLDelight by Jetbrains](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html)
+- [kotlin-multiplatform-samples](https://github.com/android/kotlin-multiplatform-samples/tree/main)
 - [People In Space by Koreilly](https://github.com/joreilly/PeopleInSpace/)
 - [Shopping By KMP by razaghimahdi](https://github.com/razaghimahdi/Shopping-By-KMP/)
-- [Create a multiplatform app using Ktor and SQLDelight by Jetbrains](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html)
 - [Hello-KMP](https://github.com/touchlab/DroidconKotlin)
 
 

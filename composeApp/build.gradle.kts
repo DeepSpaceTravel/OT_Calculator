@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.serialization)
     alias(libs.plugins.sqldelight)
 }
 
@@ -37,6 +38,8 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            //Material 3 for Android ONLY
+            implementation(libs.androidx.compose.material3)
 
             //Splash Screen
             implementation(libs.androidx.splashscreen)
@@ -72,6 +75,12 @@ kotlin {
             implementation(libs.navigation.runtime)
 //            DataStore
             implementation(libs.datastore.preferences.core)
+
+//            OKio
+            implementation(libs.okio)
+
+//            Serialization
+            implementation(libs.kotlinx.serialization.json)
         }
 //        Manuel Added
         commonTest.dependencies {
@@ -118,6 +127,9 @@ dependencies {
 //    Manual Added
     androidTestImplementation(libs.androidx.ui.test.junit4.android)
     debugImplementation(libs.ui.test.manifest)
+
+//    MCP SDK
+    implementation(libs.mcp.sdk)
 }
 
 //SQL-Delight Database
